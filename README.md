@@ -1,121 +1,82 @@
-# IoT Distance Monitor with ThingSpeak Integration
+Smart Door Lock System (RFID + Servo + LED) using Arduino Mega
+📌 Project Overview
+This project is a smart door locking system that uses an RFID reader to authenticate users.
+When an authorized RFID card is scanned, the servo motor rotates to unlock the door and the LED indicates the status.
+If an unauthorized card is scanned, the LED shows an error signal, and the door remains locked.
 
-![Setup Photo](photos/setup.jpg)  
-*Project hardware setup*
+This system can be used for homes, offices, and restricted areas where secure access is required.
 
-This project uses an **ultrasonic sensor** with a **NodeMCU (ESP8266)** to measure distances and send the data to the **ThingSpeak** cloud platform for real-time monitoring.
+🛠️ Components Used
+Arduino Mega 2560
 
----
+EM-18 RFID Reader Module
 
-## 📌 Features
-- Real-time distance measurement using **HC-SR04 Ultrasonic Sensor**.
-- Wi-Fi-enabled data transmission via **NodeMCU (ESP8266)**.
-- Automatic data logging on **ThingSpeak**.
-- Can be extended to send alerts via SMS, WhatsApp, or email if distance is below a threshold.
+125kHz RFID Card/Tag (2 units)
 
----
+SG90 Servo Motor
 
-## 🛠 Hardware Used
-- **NodeMCU ESP8266**
-- **HC-SR04 Ultrasonic Sensor**
-- Jumper Wires
-- Breadboard
+LED (Any color, used for status indication)
 
----
+Jumper Wires
 
-## 📡 ThingSpeak Setup
-1. Create a [ThingSpeak](https://thingspeak.com/) account.
-2. Create a new channel with a field named **Distance (cm)**.
-3. Copy your **Write API Key**.
-4. Paste the key into the Arduino code in place of `"YOUR_API_KEY"`.
+Breadboard
 
----
+5V Power Supply
 
-## 🔌 Circuit Diagram
-![Circuit Diagram](photos/circuit.jpg)
-
-| HC-SR04 Pin | NodeMCU Pin |
-|-------------|-------------|
-| VCC         | 3.3V        |
-| GND         | GND         |
-| TRIG        | D1 (GPIO5)  |
-| ECHO        | D2 (GPIO4)  |
-
-> ⚠️ Powering HC-SR04 with 3.3V reduces range. Works well for short distances.
-
----
-
-## 📜 Arduino Code
-```cpp
-#include <ESP8266WiFi.h>
-#include "ThingSpeak.h"
-
-// Replace with your network credentials
-const char* ssid = "YOUR_SSID";
-const char* password = "YOUR_PASSWORD";
-
-// ThingSpeak channel details
-unsigned long channelID = YOUR_CHANNEL_ID;
-const char* writeAPIKey = "YOUR_API_KEY";
-
-// Ultrasonic pins
-#define TRIG_PIN D1
-#define ECHO_PIN D2
-
-WiFiClient client;
-
-void setup() {
-  Serial.begin(115200);
-  WiFi.begin(ssid, password);
-  ThingSpeak.begin(client);
-}
-
-void loop() {
-  long duration;
-  int distance;
-
-  digitalWrite(TRIG_PIN, LOW);
-  delayMicroseconds(2);
-  digitalWrite(TRIG_PIN, HIGH);
-  delayMicroseconds(10);
-  digitalWrite(TRIG_PIN, LOW);
-
-  duration = pulseIn(ECHO_PIN, HIGH);
-  distance = duration * 0.034 / 2;
-
-  Serial.print("Distance: ");
-  Serial.println(distance);
-
-  int statusCode = ThingSpeak.writeField(channelID, 1, distance, writeAPIKey);
-  if (statusCode == 200) {
-    Serial.println("Data sent successfully");
-  } else {
-    Serial.print("Error sending data: ");
-    Serial.println(statusCode);
-  }
-
-  delay(20000); // ThingSpeak update limit
-}
-📊 Output Example
-Serial Monitor:
-Distance: 44 cm
-Data sent successfully
+⚙️ Features
+✅ RFID-based authentication
+✅ Servo-controlled door lock
+✅ LED status indication
+✅ Easy to customize authorized card IDs
+✅ Low-cost and beginner-friendly
 
 
-ThingSpeak Dashboard:
-Real-time distance chart
 
 
-🚀 Future Improvements
-SMS/WhatsApp alerts when distance < threshold.
+💻 How It Works
+The RFID reader scans the RFID card/tag.
 
-OLED display for local readings.
+The Arduino checks the card’s unique ID against stored IDs.
 
-Buzzer alerts.
+If the ID matches:
 
-👨‍💻 Author
-Sam Shoni Zacharia
+Servo rotates to unlock position.
 
-GitHub: samshoni
+LED turns green (or ON).
 
-LinkedIn: Sam Shoni Zacharia
+After a short delay, the servo returns to the locked position.
+
+If the ID does not match:
+
+LED blinks or stays red.
+
+Door remains locked.
+
+🖥️ Arduino Code
+The Arduino code includes:
+
+RFID reading logic using SoftwareSerial.
+
+Servo motor control.
+
+LED status control.
+
+Authorized card ID storage.
+
+(Include the code in your code folder or inline in GitHub.)
+
+📷 Project Images
+(Add your real project photos here)
+Example:
+
+
+Upload the Arduino code to the Mega 2560 board.
+
+Open the Serial Monitor to check RFID card IDs.
+
+Replace the IDs in the code with your authorized card IDs.
+
+Scan the RFID card to unlock the door.
+
+📄 License
+This project is licensed under the MIT License — feel free to use and modify.
