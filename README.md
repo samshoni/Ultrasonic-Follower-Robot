@@ -1,82 +1,65 @@
-Smart Door Lock System (RFID + Servo + LED) using Arduino Mega
-📌 Project Overview
-This project is a smart door locking system that uses an RFID reader to authenticate users.
-When an authorized RFID card is scanned, the servo motor rotates to unlock the door and the LED indicates the status.
-If an unauthorized card is scanned, the LED shows an error signal, and the door remains locked.
+🛡️ Smart Door Lock System (RFID + Servo Motor + Arduino Mega)
+📌 1. Project Overview
+A Smart Door Lock System that uses RFID technology to enhance security.
+When an authorized RFID card/tag is scanned, the servo motor unlocks the door for a short duration, then locks it again automatically.
+This system is simple, low-cost, and beginner-friendly — yet highly effective for home or office security.
 
-This system can be used for homes, offices, and restricted areas where secure access is required.
+🎯 2. Key Features
+🔐 Secure Access – Only registered RFID cards can unlock the system.
 
-🛠️ Components Used
-Arduino Mega 2560
+⚡ Fast Response – Instant verification and unlocking.
 
-EM-18 RFID Reader Module
+🛠️ Easy Setup – Built with Arduino Mega and readily available components.
 
-125kHz RFID Card/Tag (2 units)
+📢 Buzzer Feedback – Alerts for successful/failed scans.
 
-SG90 Servo Motor
+🔄 Auto Lock – Door locks automatically after a short delay.
 
-LED (Any color, used for status indication)
+🗂️ 3. Components Used
+Component	Quantity	Description
+Arduino Mega	1	Main microcontroller board
+EM-18 RFID Reader	1	Reads RFID card/tag
+RFID Cards/Tags	2	Pre-registered for access
+Servo Motor (SG90)	1	Controls door locking mechanism
+Buzzer	1	Gives audio feedback
+Breadboard & Jumper Wires	-	For easy connections
 
-Jumper Wires
+🖼️ 4. Working Principle
+🪪 Scan Card – RFID reader detects the card/tag ID.
 
-Breadboard
+🧠 Verification – Arduino checks if ID matches the stored authorized IDs.
 
-5V Power Supply
+✅ Access Granted – Servo rotates to unlock position, buzzer beeps once.
 
-⚙️ Features
-✅ RFID-based authentication
-✅ Servo-controlled door lock
-✅ LED status indication
-✅ Easy to customize authorized card IDs
-✅ Low-cost and beginner-friendly
+⏳ Auto Lock – After delay, servo returns to lock position.
 
+❌ Access Denied – Buzzer gives error tone if ID is not recognized.
 
+🏗️ 5. Hardware Setup
+📍 Placement Recommendations:
 
+RFID reader near the door for easy scanning.
 
-💻 How It Works
-The RFID reader scans the RFID card/tag.
+Servo connected to the locking latch.
 
-The Arduino checks the card’s unique ID against stored IDs.
+Arduino inside a safe enclosure for protection.
 
-If the ID matches:
+Buzzer placed externally for clear sound alerts.
 
-Servo rotates to unlock position.
+🔮 6. Future Improvements
+📲 Integrate with a mobile app for remote unlocking.
 
-LED turns green (or ON).
+🛜 Add IoT connectivity to log entry history online.
 
-After a short delay, the servo returns to the locked position.
+🔋 Include battery backup for uninterrupted operation.
 
-If the ID does not match:
+🎥 Add a camera for face verification alongside RFID.
 
-LED blinks or stays red.
+📸 7. Project Photos
+(Add your project build photos here)
 
-Door remains locked.
-
-🖥️ Arduino Code
-The Arduino code includes:
-
-RFID reading logic using SoftwareSerial.
-
-Servo motor control.
-
-LED status control.
-
-Authorized card ID storage.
-
-(Include the code in your code folder or inline in GitHub.)
-
-📷 Project Images
-(Add your real project photos here)
-Example:
-
-
-Upload the Arduino code to the Mega 2560 board.
-
-Open the Serial Monitor to check RFID card IDs.
-
-Replace the IDs in the code with your authorized card IDs.
-
-Scan the RFID card to unlock the door.
-
-📄 License
-This project is licensed under the MIT License — feel free to use and modify.
+👨‍💻 8. Author
+Sam Shoni 
+📧 Email: samshoni10@gmail.com
+🔗 GitHub: samshoni
+🔗 LinkedIn: Sam Shoni
