@@ -1,65 +1,66 @@
-🛡️ Smart Door Lock System (RFID + Servo Motor + Arduino Mega)
-📌 1. Project Overview
-A Smart Door Lock System that uses RFID technology to enhance security.
-When an authorized RFID card/tag is scanned, the servo motor unlocks the door for a short duration, then locks it again automatically.
-This system is simple, low-cost, and beginner-friendly — yet highly effective for home or office security.
+🔐 Smart RFID Door Lock System
+📌 Project Overview
+This project implements a Smart Door Lock System using an RFID reader (EM-18), Arduino Mega, a servo motor, and a buzzer. The system unlocks a door when a valid RFID card is detected and sounds an alert for invalid attempts.
 
-🎯 2. Key Features
-🔐 Secure Access – Only registered RFID cards can unlock the system.
+✨ Features
+✅ Contactless Access using RFID technology.
 
-⚡ Fast Response – Instant verification and unlocking.
+🔄 Automatic Servo Lock/Unlock Mechanism.
 
-🛠️ Easy Setup – Built with Arduino Mega and readily available components.
+🔊 Buzzer Alert for unauthorized access.
 
-📢 Buzzer Feedback – Alerts for successful/failed scans.
+💡 LED Indicators for system status.
 
-🔄 Auto Lock – Door locks automatically after a short delay.
+🛡️ Enhances security in homes, offices, and labs.
 
-🗂️ 3. Components Used
+🛠 Components Required
 Component	Quantity	Description
-Arduino Mega	1	Main microcontroller board
-EM-18 RFID Reader	1	Reads RFID card/tag
-RFID Cards/Tags	2	Pre-registered for access
-Servo Motor (SG90)	1	Controls door locking mechanism
-Buzzer	1	Gives audio feedback
-Breadboard & Jumper Wires	-	For easy connections
+Arduino Mega	1	Main controller
+EM-18 RFID Reader	1	125 kHz reader module
+RFID Card/Tag	2+	Access cards
+Servo Motor (SG90)	1	Controls door lock
+Buzzer	1	Alarm for invalid access
+LED (Red/Green)	2	Status indicators
+Jumper Wires	-	For connections
+Breadboard	1	Prototyping
 
-🖼️ 4. Working Principle
-🪪 Scan Card – RFID reader detects the card/tag ID.
+📏 Hardware Setup (Size & Placement)
+Component	Recommended Size/Placement
+RFID Reader (EM-18)	Mount at 1.2m height for convenient scanning. Keep 5cm clearance around it.
+Servo Motor	Place near door lock mechanism. Secure with M3 screws.
+LED Indicators	Place near RFID reader for visibility. Use 5mm diffused LEDs.
+Buzzer	Inside enclosure but with small sound hole (~5mm).
+Arduino Mega	Inside a 10cm × 8cm protective case.
+Wiring Clearance	Maintain 1cm gap between signal wires and power lines.
 
-🧠 Verification – Arduino checks if ID matches the stored authorized IDs.
+⚙️ Working Principle
+Card Scan: User taps RFID card near the reader.
 
-✅ Access Granted – Servo rotates to unlock position, buzzer beeps once.
+Authentication: Arduino checks if card UID matches stored list.
 
-⏳ Auto Lock – After delay, servo returns to lock position.
+Access Granted:
 
-❌ Access Denied – Buzzer gives error tone if ID is not recognized.
+Green LED blinks
 
-🏗️ 5. Hardware Setup
-📍 Placement Recommendations:
+Servo rotates to unlock position
 
-RFID reader near the door for easy scanning.
+Access Denied:
 
-Servo connected to the locking latch.
+Red LED blinks
 
-Arduino inside a safe enclosure for protection.
+Buzzer sounds for 2 seconds
 
-Buzzer placed externally for clear sound alerts.
+📷 Project Images
+📌 RFID Reader Placement
 
-🔮 6. Future Improvements
-📲 Integrate with a mobile app for remote unlocking.
+📌 Internal Wiring Layout
 
-🛜 Add IoT connectivity to log entry history online.
+🚀 Future Improvements
+📱 Add IoT support for remote monitoring.
 
-🔋 Include battery backup for uninterrupted operation.
+🔋 Use battery backup for power failures.
 
-🎥 Add a camera for face verification alongside RFID.
+🔑 Store multiple user profiles in EEPROM.
 
-📸 7. Project Photos
-(Add your project build photos here)
-
-👨‍💻 8. Author
-Sam Shoni 
-📧 Email: samshoni10@gmail.com
-🔗 GitHub: samshoni
-🔗 LinkedIn: Sam Shoni
+📜 License
+This project is licensed under the MIT License – you are free to use and modify it.
