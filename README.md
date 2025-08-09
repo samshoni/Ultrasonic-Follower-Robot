@@ -1,82 +1,106 @@
-Smart Door Lock System (RFID + Servo + LED) using Arduino Mega
-📌 Project Overview
-This project is a smart door locking system that uses an RFID reader to authenticate users.
-When an authorized RFID card is scanned, the servo motor rotates to unlock the door and the LED indicates the status.
-If an unauthorized card is scanned, the LED shows an error signal, and the door remains locked.
+# 🔐 RFID Smart Door Lock System
 
-This system can be used for homes, offices, and restricted areas where secure access is required.
+A secure and efficient smart door lock system powered by **Arduino Mega**, **RFID technology**, and a **servo motor**.  
+This project scans RFID cards/tags to verify authorized access, unlocking the door for valid users and triggering an alert for unauthorized ones.
 
-🛠️ Components Used
-Arduino Mega 2560
+---
 
-EM-18 RFID Reader Module
+## 📸 Project Preview
+![RFID System](photos/system_image.jpg)
 
-125kHz RFID Card/Tag (2 units)
+---
 
-SG90 Servo Motor
+## 📋 Features
+- ✅ **RFID Authentication** – Only authorized cards/tags can unlock the door.
+- 🔄 **Automatic Lock/Unlock** using a servo motor.
+- 🚨 **Buzzer Alert** for unauthorized access attempts.
+- 💡 **LED Indicators** for status feedback:
+  - Green = Access Granted
+  - Red = Access Denied
+- 🛠 **Customizable** for adding/removing authorized cards.
 
-LED (Any color, used for status indication)
+---
 
-Jumper Wires
+## 🛠 Components Used
+| Component | Quantity |
+|-----------|----------|
+| Arduino Mega | 1 |
+| RFID Reader (EM-18) | 1 |
+| RFID Cards/Tags | 2 |
+| Servo Motor (SG90) | 1 |
+| Buzzer | 1 |
+| LEDs (Red & Green) | 2 |
+| Breadboard & Jumper Wires | As required |
 
-Breadboard
+---
 
-5V Power Supply
+## ⚙️ How It Works
+1. The RFID reader scans the card/tag.
+2. The Arduino compares the scanned ID with pre-stored IDs.
+3. If the ID matches:
+   - Servo unlocks the door.
+   - Green LED lights up.
+4. If the ID does not match:
+   - Buzzer sounds.
+   - Red LED lights up.
+5. The servo automatically locks after a short delay.
 
-⚙️ Features
-✅ RFID-based authentication
-✅ Servo-controlled door lock
-✅ LED status indication
-✅ Easy to customize authorized card IDs
-✅ Low-cost and beginner-friendly
+---
 
+---
 
+## 📐 Wiring Diagram
+![Wiring Diagram](photos/wiring_diagram.jpg)
 
+**Connections Table:**
 
-💻 How It Works
-The RFID reader scans the RFID card/tag.
+| RFID Reader Pin | Arduino Mega Pin |
+|-----------------|------------------|
+| TX              | Pin 10           |
+| VCC             | 5V               |
+| GND             | GND              |
 
-The Arduino checks the card’s unique ID against stored IDs.
+| Servo Motor Pin | Arduino Mega Pin |
+|-----------------|------------------|
+| Signal          | Pin 9            |
+| VCC             | 5V               |
+| GND             | GND              |
 
-If the ID matches:
+| LED Color | Arduino Mega Pin |
+|-----------|------------------|
+| Green     | Pin 6            |
+| Red       | Pin 7            |
 
-Servo rotates to unlock position.
+| Buzzer Pin | Arduino Mega Pin |
+|------------|------------------|
+| Signal     | Pin 5            |
 
-LED turns green (or ON).
+---
 
-After a short delay, the servo returns to the locked position.
+## 🚀 Setup & Usage
+1. Assemble the components according to the wiring diagram.
+2. Upload the code to your Arduino Mega.
+3. Power up the system.
+4. Scan an RFID card/tag:
+   - If authorized → Door unlocks for a few seconds.
+   - If unauthorized → Alert is triggered.
 
-If the ID does not match:
+---
 
-LED blinks or stays red.
+## 🔮 Future Improvements
+- Integrate **IoT** for remote door monitoring.
+- Add a **keypad** for PIN-based entry.
+- Store authorized IDs in **EEPROM** for persistence.
 
-Door remains locked.
+---
 
-🖥️ Arduino Code
-The Arduino code includes:
+## 📜 License
+This project is released under the **MIT License** – you are free to use and modify it.
 
-RFID reading logic using SoftwareSerial.
+---
 
-Servo motor control.
-
-LED status control.
-
-Authorized card ID storage.
-
-(Include the code in your code folder or inline in GitHub.)
-
-📷 Project Images
-(Add your real project photos here)
-Example:
-
-
-Upload the Arduino code to the Mega 2560 board.
-
-Open the Serial Monitor to check RFID card IDs.
-
-Replace the IDs in the code with your authorized card IDs.
-
-Scan the RFID card to unlock the door.
-
-📄 License
-This project is licensed under the MIT License — feel free to use and modify.
+## ✨ Author
+**Sam Shoni Zacharia**  
+📧 Email: samshoni10@gmail.com  
+🔗 GitHub: [samshoni](https://github.com/samshoni)  
+🔗 LinkedIn: [Sam Shoni](https://www.linkedin.com/in/sam-shoni-7b2b94301)
