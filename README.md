@@ -1,55 +1,52 @@
-🤖 Ultrasonic Follower Robot
-A smart robot that follows you… but keeps a safe distance!
-Built using Arduino and ultrasonic sensing, this bot mimics "personal space" — just like a polite friend.
+# 🤖 Ultrasonic Follower Robot
 
+An **autonomous robot** that uses an **HC-SR04 ultrasonic sensor** to detect and follow objects in front of it.  
+Designed for **fun robotics experiments**, obstacle-following challenges, and beginner-friendly Arduino projects. 🚀
 
+---
 
-🚀 Features
-Human Following Mode — Uses ultrasonic sensor to detect and follow objects in front of it.
+## 📸 Demo Photo
+![Ultrasonic Follower Robot](robot-photo.jpg)  
+*(Replace `robot-photo.jpg` with your actual photo file name in the repository)*
 
-Safe Distance Control — Automatically maintains a gap to avoid collisions.
+---
 
-Simple & Affordable — Built with basic, easily available components.
+## 🎯 Features
+✅ Follows objects within a set distance range  
+✅ Avoids collisions using ultrasonic sensing  
+✅ Compact and beginner-friendly Arduino build  
+✅ Fully customizable detection distance  
 
-🛠 Components Used
-Component	Quantity	Description
-Arduino Mega	1	Brain of the robot
-HC-SR04 Ultrasonic Sensor	1	Detects distance to target
-Motor Driver (L298N)	1	Controls motors
-DC Motors + Wheels	2	For movement
-Chassis	1	Robot frame
-Jumper Wires	—	Connections
+---
 
-⚙ Working Principle
-Ultrasonic Sensor measures the distance to the object in front.
+## 🛠️ Components Used
+- **Arduino Mega 2560**
+- **HC-SR04 Ultrasonic Sensor**
+- **Motor Driver Module (L298N)**
+- **DC Motors + Wheels**
+- **Battery Pack**
+- **Chassis**
 
-Arduino processes the distance and sends signals to the motor driver.
+---
 
-If the target is too far → robot moves forward.
+## ⚙️ How It Works
+1. **Distance Measurement** → Ultrasonic sensor sends and receives sound pulses.  
+2. **Decision Making** → Arduino processes distance and decides whether to move forward or stop.  
+3. **Motor Control** → L298N motor driver controls wheel motion accordingly.
 
-If the target is too close → robot stops or moves back.
+---
 
-📂 Code Structure
-bash
-Copy code
-Ultrasonic-Follower-Robot/
-│
-├── Ultrasonic_Follower.ino   # Arduino code
-├── README.md                 # Project documentation
-└── images/                   # Pictures of the robot
-🎯 How to Run
-Connect all components as per the wiring diagram.
+## 📜 Circuit Diagram
+*(Upload your diagram here)*
 
-Upload the Ultrasonic_Follower.ino to Arduino Mega.
+---
 
-Power up the robot and place an object in front — watch it follow!
+## 📂 Code
+The complete Arduino sketch is available in [`ultrasonic_follower.ino`](ultrasonic_follower.ino).
 
-💡 Future Improvements
-Add obstacle avoidance for sideways movement.
+---
 
-Integrate with Bluetooth for remote control.
-
-Make it follow specific people using Computer Vision.
-
-✨ Author
-Sam Shoni
+## 🚀 Getting Started
+1. Clone this repo:
+   ```bash
+   git clone https://github.com/samshoni/ultrasonic-follower-robot.git
