@@ -1,50 +1,56 @@
-Line Following Robot (Arduino + IR Sensors)
-📌 Overview
-This project is a 2-IR sensor line following robot built using Arduino.
-It follows a black line on a white surface by continuously adjusting motor movement based on infrared sensor readings.
+Ultrasonic Follower Robot
+This project is an Arduino-based robot that uses an ultrasonic sensor to detect and follow an object in front of it. The robot moves forward when the object is within range, stops if it’s too close, and can also be extended to take turns.
 
-The project is part of my learning journey in robotics and embedded systems.
+📌 Features
+Follows an object in front using distance measurement.
+
+Stops automatically if the object is too close.
+
+Uses a DC motor driver to control motor movement.
+
+Adjustable detection range using code.
 
 🛠 Components Used
-Arduino Uno / Nano (or compatible microcontroller)
+Arduino Mega
 
-2 × IR line tracking sensors (left & right)
+L298N Motor Driver Module
 
-2 × DC geared motors
+Ultrasonic Sensor (HC-SR04)
 
-Motor driver module (L298N / L293D)
+2 DC Motors + Wheels
 
-Robot chassis (with caster wheel)
+Chassis Frame
 
-Battery pack (4xAA or Li-ion)
+Jumper Wires
 
-Jumper wires & connectors
+Battery Pack
 
-⚙ Circuit Connections
-Component	Arduino Pin
-Left IR Sensor	D9
-Right IR Sensor	D8
-Left Motor EN	D11
-Left Motor IN1	D7
-Left Motor IN2	D6
-Right Motor EN	D10
-Right Motor IN1	D5
-Right Motor IN2	D4
+⚡ Circuit Connections
+Motor Driver to Arduino:
 
-(You can modify pin numbers in the code as needed.)
+L298N Pin	Arduino Pin
+IN1	7
+IN2	6
+IN3	5
+IN4	4
+ENA	10
+ENB	11
+
+Ultrasonic Sensor to Arduino:
+
+HC-SR04 Pin	Arduino Pin
+VCC	5V
+GND	GND
+Trig	2
+Echo	3
 
 📜 How It Works
-The left and right IR sensors detect the color of the surface.
+The ultrasonic sensor sends out sound waves.
 
-Black line → Sensor outputs LOW
-White surface → Sensor outputs HIGH
+When the waves hit an object, they bounce back.
 
-Based on sensor readings:
+The Arduino measures the time taken for the echo to return and calculates the distance.
 
-Both LOW → Move forward
+If the object is within the set range, the motors move forward.
 
-Left LOW, Right HIGH → Turn left
-
-Right LOW, Left HIGH → Turn right
-
-Both HIGH → Stop
+If the object is too close, the motors stop.
